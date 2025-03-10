@@ -1,1 +1,38 @@
-<!DOCTYPE html> <html lang="it"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Riproduzione Audio</title> <style> body { margin: 0; padding: 0; background-color: white; overflow: hidden; } </style> </head> <body> <audio id="audioPlayer"> <source src="./sound.mp3" type="audio/mp3"> </audio> <script> var audio = document.getElementById('audioPlayer'); // Funzione per avviare la riproduzione automatica e loop function startAudio() { audio.loop = true; audio.play(); audio.volume = 1; // Rimuovi questo listener dopo aver avviato la riproduzione document.removeEventListener('click', arguments.callee); } // Attiva l'audio al primo click sulla pagina document.addEventListener('click', startAudio, { once: true }); </script> </body> </html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riproduzione Audio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audioPlayer">
+        <source src="https://raw.githubusercontent.com/LorenzoC02/sound/main/sound.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        var audio = document.getElementById('audioPlayer');
+        
+        // Funzione per avviare la riproduzione automatica e loop
+        function startAudio() {
+            audio.loop = true;
+            audio.play();
+            audio.volume = 1;
+            
+            // Rimuovi questo listener dopo aver avviato la riproduzione
+            document.removeEventListener('click', arguments.callee);
+        }
+
+        // Attiva l'audio al primo click sulla pagina
+        document.addEventListener('click', startAudio, { once: true });
+    </script>
+</body>
+</html>
