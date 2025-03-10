@@ -1,1 +1,25 @@
-<iframe width="300" height="120" title="Voicy audio player" src="https://www.voicy.network/embed/MgOOseg5EkqAAd7xiUhf_g"></iframe>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            </head>
+            <body>
+                    <audio id="audioPlayer" autoplay>
+                            <source src="sound.mp3" type="audio/mp3">
+                                        </audio>
+
+                                            <script>
+                                                    // Attendere che la pagina sia completamente caricata
+                                                            window.onload = function() {
+                                                                        var audio = document.getElementById("audioPlayer");
+                                                                                    
+                                                                                                // Impostare il volume al massimo (valore da 0.0 a 1.0)
+                                                                                                            audio.volume = 1.0; // Volume massimo
+
+                                                                                                                        // Avvia la riproduzione dell'audio
+                                                                                                                                    audio.play();
+                                                                                                                                            };
+                                                                                                                                                </script>
+                                                                                                                                                </body>
+                                                                                                                                                </html>
