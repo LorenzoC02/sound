@@ -2,24 +2,37 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            </head>
-            <body>
-                    <audio id="audioPlayer" autoplay>
-                            <source src="./sound.mp3" type="audio/mp3">
-                                        </audio>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Rimosso il titolo per non avere alcun nome nella barra del browser -->
+    <style>
+        /* Impostiamo lo sfondo bianco e rimuoviamo eventuali margini o padding */
+        body {
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tag audio con il nuovo file "sound.mp3" -->
+    <audio id="audioPlayer" autoplay muted>
+        <source src="sound.mp3" type="audio/mp3">
+        Il tuo browser non supporta il formato audio.
+    </audio>
 
-                                            <script>
-                                                    // Attendere che la pagina sia completamente caricata
-                                                            window.onload = function() {
-                                                                        var audio = document.getElementById("audioPlayer");
-                                                                                    
-                                                                                                // Impostare il volume al massimo (valore da 0.0 a 1.0)
-                                                                                                            audio.volume = 1.0; // Volume massimo
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById("audioPlayer");
 
-                                                                                                                        // Avvia la riproduzione dell'audio
-                                                                                                                                    audio.play();
-                                                                                                                                            };
-                                                                                                                                                </script>
-                                                                                                                                                </body>
-                                                                                                                                                </html>
+            // Rimuovere l'attributo "muted" per riprodurre l'audio al massimo volume
+            audio.muted = false;
+
+            // Impostare il volume al massimo
+            audio.volume = 1.0;
+
+            // Avviare la riproduzione dell'audio
+            audio.play();
+        };
+    </script>
+</body>
+</html>
