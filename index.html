@@ -3,35 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Rimosso il titolo per non avere alcun nome nella barra del browser -->
-    <style>
-        /* Impostiamo lo sfondo bianco e rimuoviamo eventuali margini o padding */
-        body {
-            background-color: white;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <title>Riproduzione Audio</title>
 </head>
 <body>
-    <!-- Tag audio con il nuovo file "sound.mp3" -->
-    <audio id="audioPlayer" autoplay muted>
+    <audio id="audioPlayer" autoplay>
         <source src="sound.mp3" type="audio/mp3">
-        Il tuo browser non supporta il formato audio.
+        Il tuo browser non supporta l'elemento audio.
     </audio>
 
     <script>
+        // Funzione per aumentare il volume dopo un breve intervallo
+        function unmuteAudio() {
+            var audio = document.getElementById('audioPlayer');
+            audio.muted = false; // Disattiva il mute
+            audio.volume = 1;    // Imposta il volume al massimo
+        }
+
+        // Imposta il volume al minimo e avvia la riproduzione
         window.onload = function() {
-            var audio = document.getElementById("audioPlayer");
-
-            // Rimuovere l'attributo "muted" per riprodurre l'audio al massimo volume
-            audio.muted = false;
-
-            // Impostare il volume al massimo
-            audio.volume = 1.0;
-
-            // Avviare la riproduzione dell'audio
-            audio.play();
+            var audio = document.getElementById('audioPlayer');
+            audio.volume = 0;    // Imposta il volume al minimo
+            audio.play();       // Avvia la riproduzione
+            setTimeout(unmuteAudio, 100); // Aumenta il volume dopo 100ms
         };
     </script>
 </body>
